@@ -22,8 +22,6 @@
 
 ## Proof-of-value 
 
-- Here is the proof of value for the project:
-
 We have developed a VPN server that allows us to monitor and manage the live connections from different locations. This project has several benefits, such as:
 
 - It enhances the security and privacy of our VPN users by preventing unauthorized access or leakage of sensitive data.
