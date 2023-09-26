@@ -30,13 +30,13 @@ We have developed a VPN server that allows us to monitor and manage the live con
 
 To demonstrate the value of this project, we have written a script that pulls the live connections to the VPN server and extracts the IP information of each connection. The script outputs a data log that contains the following fields for each connection:
 
-- Connection ID: A unique identifier for each connection
 - User ID: A unique identifier for each user
 - Source IP: The IP address of the device that initiates the connection
-- Destination IP: The IP address of the VPN server that receives the connection
-- Connection Time: The date and time when the connection is established
-- Connection Duration: The length of time that the connection is active
-- Connection Status: The current status of the connection (active, idle, disconnected, etc.)
+- VPN IP: The IP address of the VPN server that receives the connection
+- Bytes Received
+- Bytes Sent
+- Connected Since (Real Format)
+- Connected Since (Machine Readable)
 
 We have generated a sample data log with 12 sample connections for testing purposes. The sample data log can be found in /data/sampleData
 
