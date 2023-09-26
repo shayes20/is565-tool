@@ -21,3 +21,5 @@
 ## Documentation
 
 ## Proof-of-value 
+
+- Looking at live and historical data for 
