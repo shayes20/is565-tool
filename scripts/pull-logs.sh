@@ -1,4 +1,9 @@
 #!/bin/bash
 # Your script starts here
 
-sudo grep ‘^CLIENT_LIST’ /var/log/openvpn/openvpn-status.log | awk -F’,' ‘{print $2, $3, $4, $5, $6}’
+while true
+do
+    sudo grep '^CLIENT_LIST' /var/log/openvpn/openvpn-status.log | awk -F',' '{print $2, $3, $4, $5, $6}'
+    sleep 3  # Adjust the sleep duration as needed
+    clear
+done
