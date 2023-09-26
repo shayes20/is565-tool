@@ -7,3 +7,124 @@ ROUTING_TABLE,10.8.0.3,3,10.37.130.98:50540,2023-09-26 00:40:25,1695688825
 GLOBAL_STATS,Max bcast/mcast queue length,0
 GLOBAL_STATS,dco_enabled,0
 END
+
+#Russia IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-26 10:15:47,1695722147
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,77.47.123.45:54321,10.8.0.4,,13245,9876,2023-09-26 10:15:30,1695722130,UNDEF,8,2,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.4,3,77.47.123.45:54321,2023-09-26 10:15:45,1695722145
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Australia IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-26 14:22:15,1695736535
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,203.0.113.56:65432,10.8.0.5,,54321,87654,2023-09-26 14:22:00,1695736520,UNDEF,9,3,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.5,3,203.0.113.56:65432,2023-09-26 14:22:10,1695736530
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#New York IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-26 19:30:02,1695754202
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,192.0.2.50:12345,10.8.0.6,,98765,54321,2023-09-26 19:29:45,1695754185,UNDEF,10,4,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.6,3,192.0.2.50:12345,2023-09-26 19:29:58,1695754198
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Utah IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-26 21:55:18,1695761718
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,198.51.100.75:56789,10.8.0.7,,87654,98765,2023-09-26 21:55:02,1695761702,UNDEF,11,5,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.7,3,198.51.100.75:56789,2023-09-26 21:55:15,1695761715
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#BYU IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-27 08:45:30,1695792330
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,192.168.1.100:54321,10.8.0.8,,23456,12345,2023-09-27 08:45:15,1695792315,UNDEF,12,6,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.8,3,192.168.1.100:54321,2023-09-27 08:45:25,1695792325
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Japan IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-27 14:20:55,1695811255
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,203.0.113.78:65432,10.8.0.9,,54321,87654,2023-09-27 14:20:40,1695811240,UNDEF,13,7,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.9,3,203.0.113.78:65432,2023-09-27 14:20:50,1695811250
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#France IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-27 18:10:12,1695823812
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,192.0.2.88:12345,10.8.0.10,,98765,54321,2023-09-27 18:09:55,1695823795,UNDEF,14,8,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.10,3,192.0.2.88:12345,2023-09-27 18:10:10,1695823810
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Germany IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-27 21:30:48,1695834648
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,195.78.99.77:54321,10.8.0.11,,65432,98765,2023-09-27 21:30:30,1695834630,UNDEF,15,9,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.11,3,195.78.99.77:54321,2023-09-27 21:30:45,1695834645
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Russia IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-28 09:15:22,1695863722
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,93.158.134.98:54321,10.8.0.12,,9876,6543,2023-09-28 09:15:05,1695863705,UNDEF,16,10,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.12,3,93.158.134.98:54321,2023-09-28 09:15:20,1695863720
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Russia IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-28 14:40:17,1695883217
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,188.225.22.77:65432,10.8.0.13,,8765,4321,2023-09-28 14:40:00,1695883200,UNDEF,17,11,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.13,3,188.225.22.77:65432,2023-09-28 14:40:15,1695883215
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
+
+#Salt Lake City IP Address
+TITLE,OpenVPN 2.6.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] [DCO]
+TIME,2023-09-28 17:55:09,1695894909
+HEADER,CLIENT_LIST,Common Name,Real Address,Virtual Address,Virtual IPv6 Address,Bytes Received,Bytes Sent,Connected Since,Connected Since (time_t),Username,Client ID,Peer ID,Data Channel Cipher
+CLIENT_LIST,3,198.51.100.101:54321,10.8.0.14,,65432,87654,2023-09-28 17:54:55,1695894895,UNDEF,18,12,AES-256-GCM
+HEADER,ROUTING_TABLE,Virtual Address,Common Name,Real Address,Last Ref,Last Ref (time_t)
+ROUTING_TABLE,10.8.0.14,3,198.51.100.101:54321,2023-09-28 17:55:05,1695894905
+GLOBAL_STATS,Max bcast/mcast queue length,0
+GLOBAL_STATS,dco_enabled,0
+END
