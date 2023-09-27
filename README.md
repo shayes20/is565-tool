@@ -20,6 +20,12 @@
 
 ## Documentation
 
+### How to run
+- After navigating to the project directory
+``` sh
+sudo sh pull-logs.sh
+```
+
 ## Proof-of-value 
 
 We have developed a VPN server that allows us to monitor and manage the live connections from different locations. This project has several benefits, such as:

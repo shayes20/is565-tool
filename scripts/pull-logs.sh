@@ -1,5 +1,5 @@
 #!/bin/bash
-# Your script starts here
+# Script continually pulls logs from log file
 
 while true
 do
