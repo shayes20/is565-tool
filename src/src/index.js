@@ -12,10 +12,9 @@ import logger from './config/logger.js';
 //     });
 // });
 
-const PORT = 3000;
 
-server = app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+server = app.listen(config.port, () => {
+    console.log(`Server is running on port ${config.port}`);
   });
 
 const exitHandler = () => {
