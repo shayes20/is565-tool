@@ -3,17 +3,11 @@ import app from './app.js';
 import config from './config/config.js';
 import logger from './config/logger.js';
 
-// Import interval jobs
-import sampleJob from './jobs/sampleJob.js';
-
 let server;
 mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
     logger.info('Connected to MongoDB');
     server = app.listen(config.port, () => {
         logger.info(`Listening to port ${config.port}`);
-
-        // Execute jobs
-        sampleJob();
     });
 });
 

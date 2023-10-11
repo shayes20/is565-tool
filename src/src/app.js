@@ -1,12 +1,9 @@
 import express from 'express';
 import helmet from 'helmet';
-import passport from 'passport';
 import xss from 'xss-clean';
-import mongoSanitize from 'express-mongo-sanitize';
 import compression from 'compression';
 import cors from 'cors';
 import httpStatus from 'http-status';
-import jwtStrategy from './config/passport.js';
 import { successHandler, errorHandler } from './config/morgan.js';
 import config from './config/config.js';
 import authLimiter from './middlewares/rate-limiter.js';
@@ -32,7 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // Sanitize request data
 app.use(xss());
-app.use(mongoSanitize());
 
 // GZIP compression when able for responses back to client (increases speed)
 app.use(compression());
@@ -40,10 +36,6 @@ app.use(compression());
 // Enable cors
 app.use(cors());
 app.options('*', cors());
-
-// JWT authentication
-app.use(passport.initialize());
-passport.use('jwt', jwtStrategy);
 
 // Limit repeated failed requests to auth endpoints in production
 if (config.env === 'production') {
