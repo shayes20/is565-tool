@@ -3,7 +3,7 @@ import dashboardRoutes from '../routes/dashboard-routes.js';
 import config from '../config/config.js';
 import docRoutes from './docs-routes.js';
 import userRoutes from './user-routes.js';
-import indexController form '../controllers/index-controller';
+import indexController from '../controllers/index-controller';
 
 const router = Router();
 
