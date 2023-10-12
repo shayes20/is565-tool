@@ -1,16 +1,22 @@
 import { Router } from 'express';
+import dashboardRoutes from '../routes/dashboard-routes.js';
 import config from '../config/config.js';
 import docRoutes from './docs-routes.js';
 import userRoutes from './user-routes.js';
+import indexController form '../controllers/index-controller';
 
 const router = Router();
 
 /* ********* DEFAULT ROUTES *********** */
-router.use('/users', userRoutes);
 
-/* ********* AVAILABLE ONLY IN DEVELOPMENT MODE *********** */
-if (config.env === 'development') {
-    router.use('/docs', docRoutes);
-}
+router
+    .route('/')
+    .post(
+        validate(await createUserValidation()),
+        createUserController
+    )
+    .get(auth('getUsers'), validate(getUsersValidation), getUsersController);
+
+
 
 export default router;
