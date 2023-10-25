@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../utils/catch-async.js';
 // import indexService from '../services/index-service.js';
 
-const indexController = catchAsync(async (req, res) => {
+const historicalController = catchAsync(async (req, res) => {
     // const users = await indexService(req.query.results, req.query.fields);
 
     res.status(httpStatus.OK).send('ok');
@@ -11,4 +11,4 @@ const indexController = catchAsync(async (req, res) => {
     // }
 });
 
-export default indexController;
+export default historicalController;
