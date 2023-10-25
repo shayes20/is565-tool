@@ -1,21 +1,11 @@
-import db from "../config/db.js"
+import db from '../config/db.js';
 
-const sql = `
-    SELECT * FROM table1 WHERE condition1;
-    SELECT * FROM table2 WHERE condition2;
-    SELECT * FROM table3 WHERE condition3;
-`;
+export const queryUsersService = async (filter, options) => {
+    // Perform the MySQL query
+    const [rows, fields] = await db.execute('SELECT * FROM tableName', filter);
 
-const results = await queryUsersService(sql);
+    // Release the connection back to the pool
+    db.release();
 
-export const queryUsersService = async (results,fields) => {
-
-
-
-        // Perform the MySQL query
-        const [results, fields] = await db.execute(sql);
-        // Release the connection back to the pool
-        db.release();
-
-        return rows;
+    return rows;
 };
