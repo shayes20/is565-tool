@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import Joi from 'joi';
-import { URL, fileURLToPath } from 'url';
+import { fileURLToPath } from 'url';
 import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);

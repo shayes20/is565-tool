@@ -3,6 +3,7 @@ import config from './config/config.js';
 import logger from './config/logger.js';
 
 const server = app.listen(config.port, () => {
+    // eslint-disable-next-line no-console
     console.log(`Server is running on port ${config.port}`);
 });
 
