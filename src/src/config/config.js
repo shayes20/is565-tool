@@ -1,7 +1,16 @@
 import dotenv from 'dotenv';
 import Joi from 'joi';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const envFilePath = path
+    .resolve(__dirname, '../../.env')
+    .replace(/\\/g, '\\\\');
+
+dotenv.config({ path: envFilePath });
 
 const envVarsSchema = Joi.object()
     .keys({

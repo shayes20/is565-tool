@@ -17,16 +17,17 @@
 
 - Create a visual front-end dashboard
 
-
 ## Documentation
 
 ### How to run
+
 - After navigating to the project directory
-``` sh
+
+```sh
 sudo sh pull-logs.sh
 ```
 
-## Proof-of-value 
+## Proof-of-value
 
 We have developed a VPN server that allows us to monitor and manage the live connections from different locations. This project has several benefits, such as:
 
@@ -34,17 +35,18 @@ We have developed a VPN server that allows us to monitor and manage the live con
 - It enables us to optimize the performance and efficiency of our VPN network by adjusting the bandwidth allocation and routing based on the connection data.
 - It provides us with valuable insights into the usage patterns and preferences of our VPN users, which can help us improve our service quality and customer satisfaction.
 
-To demonstrate the value of this project, we have written a script that pulls the live connections to the VPN server and extracts the IP information of each connection. The script outputs a data log that contains the following fields for each connection:
+To demonstrate the value of this project, we have written a script that pulls the live connections to the VPN server and extracts the IP information of each connection. The script outputs the data to our database that contains the following fields for each connection:
 
-- User ID: A unique identifier for each user
-- Source IP: The IP address of the device that initiates the connection
-- VPN IP: The IP address of the VPN server that receives the connection
-- Bytes Received
-- Bytes Sent
-- Connected Since (Real Format)
-- Connected Since (Machine Readable)
+- SessionId: A unique identifier for the session, int
+- User ID: A unique identifier for each user, int
+- Source IP: The IP address of the device that initiates the connection, varchar
+- VPN IP: The IP address of the VPN server that receives the connection, varchar
+- BytesIn: int
+- BytesOut: int
+- ConnectionDuration: time
+- Active: tinyint
 
-We have generated a sample data log with 12 sample connections for testing purposes. The sample data log can be found in /data/sampleData
+We have generated a sample data with 12 sample connections for testing purposes.
 
 To verify the accuracy and reliability of the script, we have performed the following test cases:
 
@@ -115,3 +117,6 @@ Test Case 3:
     - Compare the data received from the API with the data present in the MySQL database.
 
 Based on these test cases, we can conclude that the backend works as intended and produces valid and useful data for our project. Therefore, we can confidently claim that our project has a high value proposition and a strong competitive advantage in the VPN market.
+## Proof of it working
+
+Insert screenshots

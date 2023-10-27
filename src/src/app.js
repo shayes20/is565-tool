@@ -10,21 +10,8 @@ import authLimiter from './middlewares/rate-limiter.js';
 import router from './routes/routes.js';
 import ApiError from './utils/ApiError.js';
 import { errorConverter } from './middlewares/error.js';
-import pool from './db.js';
 
 const app = express();
-
-app.get('/data', async (req, res) => {
-    try {
-        const [rows, fields] = await pool.query(
-            'SELECT * FROM your_table_name'
-        ); // Execute a query
-        res.json(rows); // Send the retrieved data as a JSON response
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Internal Server Error');
-    }
-});
 
 if (config.env !== 'test') {
     app.use(successHandler);
