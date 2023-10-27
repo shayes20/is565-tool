@@ -1,14 +1,10 @@
-import httpStatus from 'http-status';
 import catchAsync from '../utils/catch-async.js';
-import { CurrentUsersService } from '../services/connections-service.js';
+import { currentConnectionsService } from '../services/connections-service.js';
 
 const currentController = catchAsync(async (req, res) => {
-    const users = await CurrentUsersService(req.query.results, req.query.fields);
+    const connections = await currentConnectionsService();
 
-    res.status(httpStatus.OK).send(users);
-    // if (some error condition) {
-    //     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
-    // }
+    res.send(connections);
 });
 
 export default currentController;
