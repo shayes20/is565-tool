@@ -1,6 +1,6 @@
 # Project Name - Backend
 
-Welcome to the backend repository for Project Name! This Node.js REST API powers the backend functionalities of our application.
+Welcome to the backend repository! This Node.js REST API powers the backend functionalities of our application.
 
 ## Table of Contents
 
@@ -11,17 +11,11 @@ Welcome to the backend repository for Project Name! This Node.js REST API powers
 2. [Features](#features)
 3. [Environment Variables](#environment-variables)
 4. [Project Structure](#project-structure)
-5. [API Documentation](#api-documentation)
-6. [Error handling](#error-handling)
-7. [Validation](#validation)
-8. [Authentication](#authentication)
-9. [Authorization](#authorization)
-10. [Logging](#logging)
-11. [Custom Mongoose Plugins](#custom-mongoose-plugins)
-    - [toJSON](#tojson)
-    - [paginate](#paginate)
-12. [Linting](#linting)
-13. [Contributing](#contributing)
+5. [Error handling](#error-handling)
+6. [Authentication](#authentication)
+7. [Authorization](#authorization)
+8. [Logging](#logging)
+9. [Linting](#linting)
 
 ## Getting Started
 
@@ -35,8 +29,8 @@ Welcome to the backend repository for Project Name! This Node.js REST API powers
 Clone the repo:
 
 ```bash
-git clone https://github.com/eAssist-Autobots/backend-boilerplate
-cd backend-boilerplate
+git clone <https://github.com/shayes20/is565-tool>
+cd is565-tool
 ```
 
 Install the dependencies:
@@ -98,13 +92,12 @@ yarn prettier:fix
 
 ## Features
 
--   **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
+-   **MySQL database**: [MySQL](https://www.mysql.com/)
 -   **Authentication and authorization**: using [passport](http://www.passportjs.org)
 -   **Validation**: request data validation using [Joi](https://github.com/hapijs/joi)
 -   **Logging**: using [winston](https://github.com/winstonjs/winston) and [morgan](https://github.com/expressjs/morgan)
 -   **Testing**: No testing set up at this time
 -   **Error handling**: centralized error handling mechanism
--   **API documentation**: with [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc) and [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express)
 -   **Process management**: advanced production process management using [PM2](https://pm2.keymetrics.io)
 -   **Dependency management**: with [Yarn](https://yarnpkg.com)
 -   **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv) and [cross-env](https://github.com/kentcdodds/cross-env#readme)
@@ -115,7 +108,6 @@ yarn prettier:fix
 -   **CI**: Not set up at this time
 -   **Code coverage**: Not set up at this time
 -   **Code quality**: Not set up at this time
--   **Git hooks**: with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged)
 -   **Linting**: with [ESLint](https://eslint.org) and [Prettier](https://prettier.io)
 
 ## Environment Variables
@@ -123,31 +115,21 @@ yarn prettier:fix
 The environment variables can be found and modified in the `.env` file.:
 
 ```bash
+# Environment
+NODE_ENV=development
+
 # Port number
 PORT=3001
 
-# URL of the Mongo DB
-MONGODB_URL=mongodb://127.0.0.1:27017/backend-boilerplate
-
-# JWT
-# JWT secret key
-JWT_SECRET=thisisasamplesecret
-# Number of minutes after which an access token expires
-JWT_ACCESS_EXPIRATION_MINUTES=30
-# Number of days after which a refresh token expires
-JWT_REFRESH_EXPIRATION_DAYS=30
-# Number of minutes after which a reset password token expires
-JWT_RESET_PASSWORD_EXPIRATION_MINUTES=10
-# Number of minutes after which a verify email token expires
-JWT_VERIFY_EMAIL_EXPIRATION_MINUTES=10
-
-# SMTP configuration options for the email service
-# For testing, you can use a fake SMTP service like Ethereal: https://ethereal.email/create
-SMTP_HOST=email-server
-SMTP_PORT=587
-SMTP_USERNAME=email-server-username
-SMTP_PASSWORD=email-server-password
-EMAIL_FROM=support@yourapp.com
+# MySQL
+# Host
+MYSQL_HOST=localhost
+# User
+MYSQL_USER=username
+# Password
+MYSQL_PASSWORD=password
+# Database
+MYSQL_DATABASE=database
 ```
 
 ## Project Structure
@@ -156,22 +138,13 @@ EMAIL_FROM=support@yourapp.com
 src\
  |--config\         # Environment variables and configuration related things
  |--controllers\    # Route controllers (controller layer)
- |--docs\           # Swagger files
- |--html\           # HTML files
- |--jobs\           # Interval jobs
  |--middlewares\    # Custom express middlewares
- |--models\         # Mongoose models (data layer)
  |--routes\         # Routes
  |--services\       # Business logic (service layer)
  |--utils\          # Utility classes and functions
- |--validations\    # Request data validation schemas
  |--app.js          # Express app
  |--index.js        # App entry point
 ```
-
-## API Documentation
-
-To view the list of available APIs and their specifications, run the server and go to `http://localhost:3001/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
 
 ## Error Handling
 
@@ -214,27 +187,6 @@ const getUser = async (userId) => {
         throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
     }
 };
-```
-
-## Validation
-
-Request data is validated using [Joi](https://joi.dev/). Check the [documentation](https://joi.dev/api/) for more details on how to write Joi validation schemas.
-
-The validation schemas are defined in the `src/validations` directory and are used in the routes by providing them as parameters to the `validate` middleware.
-
-```javascript
-import { Router } from 'express';
-import validate from '../../middlewares/validate';
-import { createUserValidation } from '../../validations/user-validation';
-import { createUserController } from '../../controllers/user-controller';
-
-const router = Router();
-
-router.post(
-    '/users',
-    validate(await createUserValidation()),
-    createUserController
-);
 ```
 
 ## Authentication
@@ -310,74 +262,6 @@ This app uses pm2 in production mode, which is already configured to store the l
 
 Note: API request information (request url, response code, timestamp, etc.) are also automatically logged (using [morgan](https://github.com/expressjs/morgan)).
 
-## Custom Mongoose Plugins
-
-The app also contains 2 custom mongoose plugins that you can attach to any mongoose model schema. You can find the plugins in `src/models/plugins`.
-
-```javascript
-import mongoose from 'mongoose';
-import { toJSON } from './plugins/toJSON-plugin';
-import { paginate } from './plugins/paginate-plugin';
-
-const userSchema = mongoose.Schema(
-    {
-        /* schema definition here */
-    },
-    { timestamps: true }
-);
-
-userSchema.plugin(toJSON);
-userSchema.plugin(paginate);
-
-const User = mongoose.model('User', userSchema);
-```
-
-### toJSON
-
-The toJSON plugin applies the following changes in the toJSON transform call:
-
--   removes \_\_v, createdAt, updatedAt, and any schema path that has private: true
--   replaces \_id with id
-
-### paginate
-
-The paginate plugin adds the `paginate` static method to the mongoose schema.
-
-Adding this plugin to the `User` model schema will allow you to do the following:
-
-```javascript
-const queryUsers = async (filter, options) => {
-    const users = await User.paginate(filter, options);
-    return users;
-};
-```
-
-The `filter` param is a regular mongo filter.
-
-The `options` param can have the following (optional) fields:
-
-```javascript
-const options = {
-    sortBy: 'name:desc', // sort order
-    limit: 5, // maximum results per page
-    page: 2 // page number
-};
-```
-
-The plugin also supports sorting by multiple criteria (separated by a comma): `sortBy: name:desc,role:asc`
-
-The `paginate` method returns a Promise, which fulfills with an object having the following properties:
-
-```json
-{
-    "results": [],
-    "page": 2,
-    "limit": 5,
-    "totalPages": 10,
-    "totalResults": 48
-}
-```
-
 ## Linting
 
 Linting is done using [ESLint](https://eslint.org/) and [Prettier](https://prettier.io).
@@ -387,7 +271,3 @@ In this app, ESLint is configured to follow the [Airbnb JavaScript style guide](
 To modify the ESLint configuration, update the `.eslintrc.json` file. To modify the Prettier configuration, update the `.prettierrc.json` file.
 
 To prevent a certain file or directory from being linted, add it to `.eslintignore` and `.prettierignore`.
-
-## Contributing
-
-Please refer to [Coding Conventions & Best Practices](https://docs.google.com/document/d/1I2movakgJTWSViD3S78FKWCRaojFOZ1XXGkAiKfjKuo/edit#heading=h.z41z95zbm9vf) and [Change Management Process](https://docs.google.com/document/d/1boTaKBjke4v4cvVqeryjGI4_CXIiuOA2pYhM4wCm-SU/edit#heading=h.lsf99dc6lvup).
