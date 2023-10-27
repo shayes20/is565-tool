@@ -4,9 +4,9 @@ import { graphService } from '../services/connections-service.js';
 
 
 const graphController = catchAsync(async (req, res) => {
-    const users = await graphServiceService(req.query.results, req.query.fields);
+    const users = await graphService(req.query.results, req.query.fields);
 
-    res.status(httpStatus.OK).send('ok');
+    res.status(httpStatus.OK).send(users);
     // if (some error condition) {
     //     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
     // }
