@@ -119,4 +119,18 @@ Test Case 3:
 Based on these test cases, we can conclude that the backend works as intended and produces valid and useful data for our project. Therefore, we can confidently claim that our project has a high value proposition and a strong competitive advantage in the VPN market.
 ## Proof of it working
 
-Insert screenshots
+### Session Database Table
+
+![](./screenshots/Database.png)
+
+### API Current Connections Endpoint
+
+![](./screenshots/CurrentConnections.png)
+
+### API Historical Connections Endpoint
+
+![](./screenshots/HistoricalConnections.png)
+
+### API Graph Endpoint
+
+![](./screenshots/Graph.png)
