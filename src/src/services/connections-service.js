@@ -9,7 +9,7 @@ export const currentConnectionsService = async () => {
     );
 
     // Release the connection back to the pool
-    db.release();
+    // db.release();
 
     return results;
 };
@@ -17,11 +17,11 @@ export const currentConnectionsService = async () => {
 export const graphService = async () => {
     // Perform the MySQL query
     const [results] = await db.execute(
-        'SELECT SourceIp FROM Session WHERE Active = 1'
+        'SELECT SourceIP FROM Session WHERE Active = 1'
     );
 
     // Release the connection back to the pool
-    db.release();
+    // db.release();
 
     // Create a map with IP address as key and country as value
     const ipCountryMap = {};
@@ -30,9 +30,27 @@ export const graphService = async () => {
     await asyncForEach(results, async (result) => {
         const sourceIp = result.SourceIP;
 
-        const [country] = await fetch(`https://api.country.is/${sourceIp}`);
+        if (sourceIp[0] == 1 && sourceIp[1] == 0 && sourceIp[2] == '.'){
+            ipCountryMap[sourceIp] = "BYU";
+        } else{
 
-        ipCountryMap[sourceIp] = country;
+            try {
+                const response = await fetch(`https://api.country.is/${sourceIp}`);
+                if (!response.ok) {
+                  throw new Error(`Failed to fetch data: ${response.statusText}`);
+                }
+                
+                const data = await response.json(); 
+                const { country } = data;
+              
+                ipCountryMap[sourceIp] = country;
+
+              } catch (error) {
+                console.error(`Error: ${error}`);
+              }
+              
+        }
+
     });
 
     return ipCountryMap;
@@ -43,7 +61,7 @@ export const historicalConnectionsService = async () => {
     const [results] = await db.execute('SELECT * FROM Session');
 
     // Release the connection back to the pool
-    db.release();
+    // db.release();
 
     return results;
 };
