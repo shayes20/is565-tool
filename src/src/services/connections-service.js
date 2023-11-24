@@ -5,7 +5,7 @@ import asyncForEach from '../utils/async-for-each.js';
 export const currentConnectionsService = async () => {
     // Perform the MySQL query
     const [results] = await db.execute(
-        'SELECT * FROM Session WHERE Active = 1'
+        'SELECT SessionId, UserId, SourceIP, VPNIP,BytesIn BytesOut, ConnectedStart FROM Session WHERE Active = 1'
     );
 
     // Release the connection back to the pool
@@ -58,7 +58,7 @@ export const graphService = async () => {
 
 export const historicalConnectionsService = async () => {
     // Perform the MySQL query
-    const [results] = await db.execute('SELECT * FROM Session');
+    const [results] = await db.execute('SELECT SessionId, UserId, SourceIP, VPNIP,BytesIn BytesOut, ConnectedStart, ConnectedEnd FROM Session WHERE Active =0');
 
     // Release the connection back to the pool
     // db.release();

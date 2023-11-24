@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Dashboard</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Connection Dashboard</h1>
+
+        <button class="btn btn-primary mr-2" onclick="toggleTable('current')">Show Current Connections</button>
+        <button class="btn btn-primary" onclick="toggleTable('historical')">Show Historical Connections</button>
+
+        <div id="currentTable" class="mt-4">
+            <h2>Current Connections</h2>
+            <table id="currentConnectionsTable" class="table table-bordered">
+
+            </table>
+        </div>
+
+        <div id="historicalTable" style="display: none;" class="mt-4">
+            <h2>Historical Connections</h2>
+            <table id="historicalConnectionsTable" class="table table-bordered">
+
+            </table>
+        </div>
+
+        <h2 class="mt-4">Active Connections by Country</h2>
+        <canvas id="connectionChart"></canvas>
+    </div>
+    <script>
+
+        function toggleTable(tableType) {
+            if (tableType === 'current') {
+                document.getElementById('currentTable').style.display = 'block';
+                document.getElementById('historicalTable').style.display = 'none';
+            } else {
+                document.getElementById('currentTable').style.display = 'none';
+                document.getElementById('historicalTable').style.display = 'block';
+            }
+        }
+
+        async function fetchDataAndRender() {
+
+            const currentResponse = await fetch('http://10.1.199.238:3000/currentConnections');
+            const currentData = await currentResponse.json();
+
+            const historicalResponse = await fetch('http://10.1.199.238:3000/historicalConnections');
+            const historicalData = await historicalResponse.json();
+
+            const graphResponse = await fetch('http://10.1.199.238:3000/graph');
+            const graphData = await graphResponse.json();
+
+            updateTable('currentConnectionsTable', currentData);
+
+            updateTable('historicalConnectionsTable', historicalData);
+
+            updateChart(graphData);
+
+            setInterval(fetchDataAndRender, 30000);
+        }
+
+
+        function updateTable(tableId, data) {
+            const table = document.getElementById(tableId);
+
+            table.innerHTML = '';
+
+            const headerRow = table.insertRow();
+            for (const key in data[0]) {
+                const th = document.createElement('th');
+                th.textContent = key;
+                headerRow.appendChild(th);
+            }
+
+            data.forEach(entry => {
+     
+                const row = table.insertRow();
+                for (const key in entry) {
+
+                    if (key == "ConnectedStart" || key == "ConnectedEnd"){
+                        const dateString = entry[key];
+                        const dateObject = new Date(dateString);
+
+                        const formattedDate = dateObject.toLocaleDateString();
+                        const formattedTime = dateObject.toLocaleTimeString();
+
+                        const formattedDateTime = `${formattedDate} ${formattedTime}`;
+
+                        entry[key] = formattedDateTime
+                    }
+                    const cell = row.insertCell();
+                    cell.textContent = entry[key];
+                }
+            });
+        }
+
+        function updateChart(data) {
+
+            const countries = Object.values(data);
+            const counts = countries.reduce((acc, country) => {
+                acc[country] = (acc[country] || 0) + 1;
+                return acc;
+            }, {});
+            console.log(countries)
+            const ctx = document.getElementById('connectionChart').getContext('2d');
+
+            new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(counts),
+            datasets: [{
+                label: 'IP Count by Country',
+                data: Object.values(counts),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+        }
+
+        fetchDataAndRender();
+    </script>
+</body>
+</html>
