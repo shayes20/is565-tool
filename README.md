@@ -27,7 +27,7 @@
 sudo sh pull-logs.sh
 ```
 
-## Proof-of-value
+## Proof of value 1
 
 We have developed a VPN server that allows us to monitor and manage the live connections from different locations. This project has several benefits, such as:
 
@@ -56,20 +56,21 @@ To verify the accuracy and reliability of the script, we have performed the foll
 
 Based on these test cases, we can conclude that the script works as intended and produces valid and useful data for our project. Therefore, we can confidently claim that our project has a high value proposition and a strong competitive advantage in the VPN market.
 
-## Proof-of-value 
+## Proof of value 2
+
 For the next step of our project, we have developed a backend system in Node.js that allows us to store the data of our current and past VPN connections. This project has several benefits, such as:
 
 - Real-time Monitoring: By actively tracking live connections, we can monitor network usage patterns and identify potential issues in real time.
-- Data-Driven Insights: The wealth of data gathered, including user behavior, connection durations, and popular server locations, provides invaluable insights. 
+- Data-Driven Insights: The wealth of data gathered, including user behavior, connection durations, and popular server locations, provides invaluable insights.
 - Improved User Experience: Understanding user preferences and usage habits enables us to tailor our services.
 
-To demonstrate the value of this project, we created a MySQL database and Node.js application that does the following: 
+To demonstrate the value of this project, we created a MySQL database and Node.js application that does the following:
 
 1. Receives OpenVPN Script Output:
-Our database receives output from the OpenVPN script containing information about current and past VPN connections.
+   Our database receives output from the OpenVPN script containing information about current and past VPN connections.
 2. Store Current and Historical Data:
-The backend stores current VPN connections and historical data in a MySQL database.
-Expose API for Queries:
+   The backend stores current VPN connections and historical data in a MySQL database.
+   Expose API for Queries:
 3. Our application Implements API endpoints to query current and historical VPN connections.
 
 Database Schema:
@@ -88,36 +89,29 @@ Table: User
 UserId
 Name
 
-
 To verify the accuracy and reliability of the script, we have performed the following test cases (Screenshots included below):
 
 Test Case 1:
-    Objective: 
-    - To ensure that the MySQL database receives data from the script.
-    Steps:
-    - Run the OpenVPN script with simulated connection data.
-    - Check the MySQL database for the presence of new records.
-    - Verify that the records in the database match the data sent by the script.
-    
+Objective: - To ensure that the MySQL database receives data from the script.
+Steps: - Run the OpenVPN script with simulated connection data. - Check the MySQL database for the presence of new records. - Verify that the records in the database match the data sent by the script.
 
-Test Case 2: 
-    Objective: 
-    - To confirm that the Node.js application successfully retrieves data from the MySQL database.
-    Steps:
-    - Query the MySQL database using the Node.js application, requesting connection data.
-    - Retrieve the response from the MySQL query.
-    - Verify that the retrieved data matches the records stored in the MySQL database.
-  
+Test Case 2:
+Objective: - To confirm that the Node.js application successfully retrieves data from the MySQL database.
+Steps: - Query the MySQL database using the Node.js application, requesting connection data. - Retrieve the response from the MySQL query. - Verify that the retrieved data matches the records stored in the MySQL database.
 
-Test Case 3: 
-    Objective: To validate that the API endpoint returns the correct connection data.
-    Steps:
-    - Send a GET request to the designated API endpoint   
-    - Receive the API response containing connection data.
-    - Compare the data received from the API with the data present in the MySQL database.
+Test Case 3:
+Objective: To validate that the API endpoint returns the correct connection data.
+Steps: - Send a GET request to the designated API endpoint
+
+- Receive the API response containing connection data. - Compare the data received from the API with the data present in the MySQL database.
 
 Based on these test cases, we can conclude that the backend works as intended and produces valid and useful data for our project. Therefore, we can confidently claim that our project has a high value proposition and a strong competitive advantage in the VPN market.
-## Proof of it working
+
+## Proof of value 3
+
+NEED TO COMPLETE
+
+## Proof of it working (API endpoints)
 
 ### Session Database Table
 
@@ -134,3 +128,21 @@ Based on these test cases, we can conclude that the backend works as intended an
 ### API Graph Endpoint
 
 ![](./screenshots/Graph.png)
+
+## Proof of it working (Frontend)
+
+### Current Connections
+
+![](./screenshots/CurrentConnectionsTable.png)
+
+### Full UI
+
+![](./screenshots/FullUI.png)
+
+### Historical Connections
+
+![](./screenshots/HistoricalConnectionsTable.png)
+
+### Country Graph
+
+![](./screenshots/IPByCountryGraph.png)
