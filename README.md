@@ -109,7 +109,64 @@ Based on these test cases, we can conclude that the backend works as intended an
 
 ## Proof of value 3
 
-NEED TO COMPLETE
+For the last step of our project, we have developed a frontend UI system using JavaScript for our app to display the data of our current and past VPN connections, and where the connections are coming from. This project has several benefits, such as:
+
+- Enhanced Monitoring: Users can easily monitor both current and historical VPN connections through intuitive and accessible UI elements.
+
+- Data Analysis and Insights: Access to organized tables and visual representations empowers users to analyze VPN usage patterns, aiding in decision-making and strategic planning.
+
+- Improved User Experience: Offering easy access to essential data through a user-friendly UI fosters a positive user experience, enhancing the value proposition of our VPN service.
+
+
+To demonstrate the value of this project, we created a UI that does the To demonstrate the value of this project, we created a UI that offers the following functionalities:
+
+1. Shows a Table of Current Connection Data:
+  - The UI presents a well-organized table displaying real-time information about current VPN connections.
+  - Users can access details such as connected users, IPs, data transfer, and connection durations in an easily comprehensible format.
+2. Shows a Table of Historical Connection Data:
+  - Users can access a separate table within the UI that stores historical VPN connection data.
+  - This table provides insights into past VPN sessions, including user sessions, IPs, bytes transferred, and connection durations for previous sessions.
+3. Displays a Graph of Current Connections by Country:
+  - The UI incorporates a visual graph depicting the distribution of current VPN connections across different countries.
+  - Users can gain insights into the geographic distribution of active connections, aiding in understanding usage patterns across various regions.
+
+Incorporating these features into the UI allows users to efficiently access and analyze both real-time and historical VPN connection data, providing valuable insights into usage patterns and enhancing the overall user experience.
+
+
+Test Case 1: Verifying Current Connection Data Retrieval in UI
+    
+    Objective: Ensure the UI frontend successfully fetches and displays current connection data from the Node.js backend and the database.
+
+    Steps:
+
+    1. Click on the "Current Connection Data" section/button in the UI.
+    2. UI initiates a request to the Node.js backend API endpoint designed to fetch current connection data.
+    3. Verify that the UI table displays accurate and updated information about live VPN connections.
+    4. Confirm the displayed data matches the records stored in the MySQL database.
+
+Test Case 2: Validating Historical Connection Data Retrieval in UI
+
+    Objective: Validate the UI's capability to retrieve and exhibit historical connection data from the backend and the database.
+
+    Steps:
+
+    1. Click on the "Historical Connection Data" section/button in the UI.
+    The UI triggers a request to the Node.js backend API endpoint responsible for historical connection data retrieval.
+    2. Ensure the UI table exhibits accurate and relevant historical VPN connection details.
+    3. Verify the displayed historical data aligns with the records stored in the MySQL database.
+
+Test Case 3: Confirming Graph Display of Current Connections by Country
+
+    Objective: Verify the UI's ability to showcase a graph illustrating current VPN connections distributed by country.
+
+    Steps:
+
+    1. Navigate to the section/button displaying "Current Connections by Country Graph" in the UI.
+    2. The UI interacts with the Node.js backend to fetch data related to current connections categorized by country.
+    3. Check that the graph displayed accurately represents the distribution of live VPN connections across different countries.
+    4. Cross-reference the graph data with the corresponding records stored in the MySQL database to ensure consistency and accuracy.
+
+By executing these test cases, we can ensure the seamless functioning and integration between the UI frontend, Node.js backend, and the MySQL database, ensuring the successful extraction and display of current and historical VPN connection data. This validation confirms the reliability and completeness of our VPN data pipeline, enhancing the project's overall value proposition and competitiveness in the market.
 
 ## Proof of it working (API endpoints)
 
